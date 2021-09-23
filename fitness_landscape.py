@@ -72,6 +72,7 @@ def plot_pca_traj(
     )  # returns index 0 if strain is valid, otherwise returns -1
     bool_strain = (filt1 != -1).values
     filt_strain_num_list = env_list[bool_strain].index.tolist()
+    cmap = plt.get_cmap("tab10")
     if c == "gray":
         cmap2 = [cmap(7)] * 6
     else:
