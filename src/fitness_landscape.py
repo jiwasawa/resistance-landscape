@@ -1,4 +1,5 @@
 import matplotlib
+import matplotlib.colors as colors
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -466,3 +467,11 @@ def kde_path(x, y, traj_points, noise_strength, thre=0.1):
 
     traj_sum[traj_sum > thre] = 1
     return traj_sum
+
+
+def truncate_colormap(cmap, minval=0.0, maxval=1.0, n=100):
+    new_cmap = colors.LinearSegmentedColormap.from_list(
+        "trunc({n},{a:.2f},{b:.2f})".format(n=cmap.name, a=minval, b=maxval),
+        cmap(np.linspace(minval, maxval, n)),
+    )
+    return new_cmap
