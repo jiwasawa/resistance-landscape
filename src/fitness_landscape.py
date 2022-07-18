@@ -239,7 +239,7 @@ def gaussian(x, mu, sigma):
     return norm * np.exp(-X / 2)
 
 
-def fitted_2d_func(x, y, mu1, mu2, h1, h2, rel_fit):
+def fitted_2d_func(x, y, mu1, mu2, h1, h2, rel_fit, return_normalized=True):
     """
     Returns the superposition of multiple Gaussians based on the fitnotype data.
     The function is normalized so that the sum is one.
@@ -253,7 +253,11 @@ def fitted_2d_func(x, y, mu1, mu2, h1, h2, rel_fit):
         gauss_sum += (
             rel_fit[nn] * gaussian(x, mu1[nn], h1) / h1 * gaussian(y, mu2[nn], h2) / h2
         )
-    return gauss_sum / np.array(rel_fit).sum()
+    if return_normalized:
+        return gauss_sum / np.array(rel_fit).sum()
+    else:
+        return gauss_sum
+
 
 
 def landscape_props(stress_index, h=0.9, grid_size=grid_size):
