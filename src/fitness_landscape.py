@@ -89,7 +89,7 @@ def plot_pca_traj(
                     traj_pca[start_time:, 1],
                     ".-",
                     lw=1,
-                    color=cmap2[i + 2],
+                    color=cmap2[5],
                     alpha=alpha,
                     label=strain_name,
                     zorder=zorder,
@@ -100,7 +100,7 @@ def plot_pca_traj(
                     traj_pca[start_time:, 1],
                     ".-",
                     lw=1,
-                    color=cmap2[i + 2],
+                    color=cmap2[5],
                     alpha=alpha,
                     zorder=zorder,
                 )
@@ -112,6 +112,13 @@ def plot_pca_traj(
                     color="k",
                     alpha=alpha,
                     s=90,
+                )
+                plt.scatter(
+                    traj_pca[-1, 0],
+                    traj_pca[-1, 1],
+                    color=cmap(8),
+                    alpha=0.9,
+                    s=60,
                 )
         traj_pca_df = traj_pca_df.append(
             pd.DataFrame(traj_pca[start_time:, :]), ignore_index=True

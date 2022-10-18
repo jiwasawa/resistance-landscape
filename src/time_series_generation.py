@@ -130,5 +130,6 @@ def plot_strain(
                 zorder=3,
             )
         plt.scatter(trajectory1[0], trajectory2[0], color="k", alpha=1, zorder=1, s=32)
+        plt.scatter(trajectory1[-1], trajectory2[-1], color="gray", alpha=1, zorder=1, s=25)
     plt.xlabel(stress1 + " resistance")
     plt.ylabel(stress2 + " resistance")
