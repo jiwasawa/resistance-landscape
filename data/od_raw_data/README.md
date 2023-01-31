@@ -38,6 +38,7 @@
     Please refer to `./conc_data/plate_design.pdf` for a detailed description of the drug concentrations of each well.
     The values in the matrix are the OD_620 values as described in the Materials and Methods section in our paper [1].
     - **IC50_fitting.ipynb**: The jupyter notebook which we used to calculate the IC50 values based on the measured OD.
+    Unfortunately, the script will not move properly since several xlsx have been updated during the time-course of the experiment, but it should give a good idea how the files in the directory were used.
     - **Plot_data.ipynb**: The jupyter notebook which can be used to plot the OD curves for each environment.
     The author used the plots to observe the resistance evolution during the experiments.
   - **conc_data**: Includes drug concentration information for the 384-well plates used in the experiments.
@@ -46,6 +47,9 @@
     `step_size` corresponds to the size of the drug concentration gradient. For example, when `step_size=0.25`, the well concentration increases with a factor of 2**0.25.
     A schematic is given in `plate_design.pdf`.
     - **plate_design.pdf**: A schematic image describing the relation of `MaxConc_ug_per_ml` and `step_size`.
+  - **PlateType_201907_matching_30plates_TimeSeries.xlsx**: This xlsx file includes the information of which plate in `./conc_data` was used in dayN. `plate_num` in the leftmost column corresponds to X in `./reshaped_od/OD_dayN_plateX_Y.csv`.
+  This xlsx file was needed to track the changes of the plate designs along the drug resistance evolution of the strains.
+  - **strain_num_matching.xlsx**: The environments for each strain. For example, $\rm{strain\_num} = 1,2$ and 3,4 grew in plate 1 and 2, respectively, and they correspond to `Parent in TET1,2,3,4` which appear in the paper [1].
 
 
 ## Reference
